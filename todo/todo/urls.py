@@ -20,4 +20,5 @@ from django.conf.urls import url
 urlpatterns = [
     path('',include('todoApp.urls')),
     path('admin/', admin.site.urls),
+    path('tinymce/', include('tinymce.urls')),
 ]

@@ -1,0 +1,27 @@
+<head>
+    {% load static %}
+    <!-- Prism CSS -->
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+<div class="container" style="margin-top:50px">
+  {% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-sm btn-danger mt-2">Register</button>
+    </form>
+    If you already have an account:
+    <form action="login_request/">
+    <button type="submit" class="btn btn-sm btn-danger mt-2">Login</button>
+    </form>
+  {% endblock %}
+  </div>
+</body>
+
+<!-- Prism JS -->
+<script src="{% static "tinymce/js/prism.js" %}"></script>

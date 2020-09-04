@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark bg-primary">
+    <!-- Navbar content -->
+    <a class="navbar-brand">To Do App</a>
+    {% if user.is_authenticated %}
+    <form action="Account" method="get">
+    {% csrf_token %}
+    <button type="submit" class="float-right btn btn-sm btn-danger mt-2">{{ user.username|title }}</button>
+    </form>
+    <form action="logout_request/" method="get">
+    {% csrf_token %}
+    <button type="submit" class="float-right btn btn-sm btn-danger mt-2">Logout</button>
+    </form>
+    {% else %}
+    <form action="Register" method="get">
+    {% csrf_token %}
+    <button type="submit" class="float-right btn btn-sm btn-danger mt-2">Register</button>
+    </form>
+    <form action="login_request/" method="get">
+    {% csrf_token %}
+    <button type="submit" class="float-right btn btn-sm btn-danger mt-2">Login</button>
+    </form>
+    {% endif %}
+
+</nav>
